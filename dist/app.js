@@ -1,13 +1,19 @@
-"use strict";
+'use strict';
 
-var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+var _react = require('react');
 
-var React = _interopRequire(require("react"));
+var _react2 = _interopRequireDefault(_react);
 
-var Table = _interopRequire(require("./Table.js"));
+var _Table = require('./Table.js');
 
-var request = _interopRequire(require("superagent"));
+var _Table2 = _interopRequireDefault(_Table);
 
-request.get("http://jsonplaceholder.typicode.com/posts").end(function (err, res) {
-    React.render(React.createElement(Table, { data: res.body }), document.getElementById("app"));
+var _superagent = require('superagent');
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_superagent2.default.get('http://jsonplaceholder.typicode.com/posts').end(function (err, res) {
+    _react2.default.render(_react2.default.createElement(_Table2.default, { data: res.body }), document.getElementById("app"));
 });
